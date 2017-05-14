@@ -122,15 +122,106 @@ $x$ & $y$ & $n$ & Execuções & Tempo Total & Tempo/Execução \\\hline
 
 E assim podemos então, através do passo indutivo, obter um algoritmo que prove este teoremas de acordo com as devidas instâncias disponibilizadas para realização de testes e desempenho da CPU no processamento!\\
 
-\textbf{Implementação em Python}:
+\textbf{Implementação em Python da Função Verificadora do Gráfico Denso}:\\
+
+Esta função recebe como parâmetro uma matriz de adjacências e retorna a verificação para o grafo, ou sejam, retorna $-1$ caso o gráfico NÃO seja denso, e $0$ caso o mesmo SEJA denso.\\
 
 {\color{blue}
 \begin{verbatim}
-#CODIGO
+def dense(M):
+    verts = len(M)
+    cards = np.zeros(verts)
+    for i in range(verts):
+        for j in range(verts):
+            if (M[i][j] == 1):
+                cards[i] = cards[i] + 1
+    for i in range(verts):
+        for j in range(verts):
+            if(i != j and cards[i] + cards[j] < verts):
+                return -1
+    return 0
+\end{verbatim}
+}
+
+Sabendo então se temos um grafico denso ou não, podemos observar a função que determina o menor Ciclo Hamiltoniano entre dois vértices, esta função recebe como parâmetro uma matriz de adjacências e retorna um vetor de arestas que compõem o ciclo correspondente.\\
+
+Vamos à implementação em Python...
+
+\pagebreak
+
+\textbf{Implementação em Python do Ciclo Hamiltoniano}:
+
+{\color{red}
+\begin{verbatim}
+def Path(M, v1, v2, cicle):
+    n = len(M[0])
+    cicle = cicle + [v1]
+    if(v1 == v2):
+        return cicle
+    if(v1 not in range(n)):
+        return []
+    shortest = []
+    for i in range(n):
+        if(M[v1][i] == 1):
+            v = i
+            if v not in cicle:
+                newpath = Path(M, v, v2, cicle)
+                if (newpath and (newpath != shortest or len(newpath) > len(shortest))):
+                    shortest = newpath
+    return shortest
+
+def firstAdjascent(index,M):
+    n = len(M[0])
+    for i in range(n):
+        if(M[index][i] == 1):
+            return i
+
+def cicloH(M):
+    n = len(M[0])
+    if(n < 3 or dense(M) == -1):
+        print("O grafo não se aplica ao teorema!")
+        return -1
+    index = firstAdjascent(0, M)
+    path1 = Path(M, 0, index, [])
+    if(path1 == -1):
+        print("Erro na ida!")
+        return -1
+    #print(path1)
+    newM = np.copy(M)
+    newM = removePath(newM, path1)
+    path2 = Path(newM, index, 0, [])
+    if(path2 == -1):
+        print("Erro na volta!")
+        return -1
+    #print(path2)
+    del(path2[0])
+    return path1 + path2
+
+def removePath(M, path):
+    newM = M
+    for i in range(len(path)-1):
+        newM[path[i]][path[i+1]] = 0
+        newM[path[i+1]][path[i]] = 0
+    return newM
 \end{verbatim}
 }
 
 \pagebreak
+
+\textbf{Testes}: A tabela abaixo ilustra os resultados dos testes. Como procedimento de testes, cabe olhar o arquivo Jupyter Notebook para melhor observação e entendimento dos testes e tempos de execução dos mesmos!\\
+
+\textbf{Observação}: Como nos testes existem loops que demoram mais que $5 seg$ não implicam no código estar demorando demais a responder, é normal demorar um pouco para printar o resultado...
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|l|l}
+Exemplo de Número $K$ & Tempo de Execução & Ciclo Hamiltoniano Obtido\\\hline
+1 & 6.556604081357364 & [0, 2, 3, 1, 0]\\
+2 & 6.815225674773501 & [0, 3, 2, 1, 0]\\
+3 & 9.464697112933209 & [0, 2, 1, 0, -]\\
+4 & 11.525693138318275 & [0, 3, 2, 1, 0]\\
+\end{tabular}
+\end{table}
 
 \section{Terceira Questão (Teorema 3)}
 
@@ -158,7 +249,7 @@ a_{2^k} = e_{2^k}\end{gather}
 b_1 = e_{2^k + 1} \\
 b_2 = e_{2^k + 2} \\
 ... \\
-b_{2^k} = e_{2^{k+1}}\end{gather}
+b_{2^k} = e_{2^{k+1}}\\\end{gather}
 
 A primeira rodada deste momento teremos os jogos $[a_1, b_1]$, $[a_2, b_2]$, ..., $[a_{2^k}, b_{2^k}]$.\\
 
@@ -166,9 +257,7 @@ Na segunda rodada, ocorrerá uma rotação nos times de $B$, de modo que o prime
 
 Nas próximas rodadas, continuará ocorrendo essa rotação, até que na $2^k$-ésima rodada deste momento teremos: $[a_1, b_2]$, $[a_2, b_3]$, ..., $[a_{2^k-1}, b_{2^k}]$, $[a_{2^k}, b_1]$.\\
 
-O total destes dois momentos é $(2^k -1) + (2^k) = 2^{k+1} - 1$ rodadas de $2^k$ jogos, o que está de acordo com o teorema.
-
-\pagebreak
+O total destes dois momentos é $(2^k -1) + (2^k) = 2^{k+1} - 1$ rodadas de $2^k$ jogos, o que está de acordo com o teorema.\\
 
 \textbf{Implementação em Python}:
 
@@ -222,8 +311,6 @@ def tournament(k, start = 1):
     return t
 \end{verbatim}
 }
-
-\pagebreak
 
 \textbf{Exemplo}: Tendo $k = 3$, esse foi o resultado gerado pela implementação em Python:\\
 
