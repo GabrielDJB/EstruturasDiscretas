@@ -112,6 +112,24 @@ $x$ & $y$ & $n$ & Execuções & Tempo Total & Tempo/Execução \\\hline
 
 \section{Segunda Questão (Teorema 2)}
 
+\textbf{Teorema 2} ($k$): Seja $G = (V, E)$ um grafo denso. Sabe-se encontrar um caminho Hamiltoniano em $G$ onde $|V| >= 3$.\\
+
+\textbf{Caso base}: Temos como teorema de caso base o Grafo completo, pois todo grafo completo com pelo menos $3$ vértices contém um ciclo Hamiltoniano. Basta colocar os vértices em uma ordem qualquer e conectá-los em um ciclo. Validando então o caso base.\\
+
+\textbf{Hipótese de Indução}: Sabe-se encontrar um ciclo Hamiltoniano em um grafo com as especificações especificadas acima e com o número de arestas maior ou igual a $k$.\\
+
+\textbf{Passo indutivo}: Deve-se provar que sabe-se encontrar um ciclo Hamiltoniano em um grafo com $k-1$ arestas que satisfaça as condições do problema. $G = (V,E)$ será esse grafo com $k-1$ arestas. Pegando um par de vértices não adjacentes $v$ e $w$ em $G$ e considerar o grafo $G$’ que é igual a $G$ mas com $v$ e $w$ conectados. Pela hipótese de indução sabe-se encontrar um ciclo Hamiltoniano com $k$ arestas. Se a aresta $(v,w)$ não está no ciclo então esse ciclo está presente em $G$, senão (sabendo que a soma das arestas em $v$ e $w$ será no mínimo $n$) toma-se v como primeiro ($v_1$) e $w$ como último ($v_n$) vértices no ciclo encontrado em $G$’ e toma dois vértices vizinhos ($v_i$ e $v_i+1$) tal que o primeiro ($v_i$) esteja ligado a $w$ e o segundo ($v_i+1$) a $v$. Dessa forma o novo ciclo é formado partindo de $v$ para $v_i+1$, segue o caminho até $w$, vai para $v_i$ e então percorre o caminho até $v$ provando o teorema.\\
+
+E assim podemos então, através do passo indutivo, obter um algoritmo que prove este teoremas de acordo com as devidas instâncias disponibilizadas para realização de testes e desempenho da CPU no processamento!\\
+
+\textbf{Implementação em Python}:
+
+{\color{blue}
+\begin{verbatim}
+#CODIGO
+\end{verbatim}
+}
+
 \pagebreak
 
 \section{Terceira Questão (Teorema 3)}
