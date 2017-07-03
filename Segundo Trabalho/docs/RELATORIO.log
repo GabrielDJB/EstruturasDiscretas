@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.7.2)  2 JUL 2017 21:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.7.2)  2 JUL 2017 22:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1059,25 +1059,59 @@ Overfull \hbox (33.22395pt too wide) in paragraph at lines 319--328
  [][] 
  []
 
-[6] (./RELATORIO.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--344
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--348
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 349--350
+
+ []
+
+[6] [7]
+Overfull \hbox (8.4308pt too wide) in paragraph at lines 360--361
+[] \T1/futs/m/sc/10.95 Enun-ci-ado do Pro-blema[][] \T1/futs/m/n/10.95 : Con-si
+-de-rando um texto de-fi-nido pelo ve-tor de ca-rac-te-res $\FML/futmi/m/it/10.
+95 T\T1/futs/m/n/10.95 [1\FML/futmi/m/it/10.95 ::n\T1/futs/m/n/10.95 ]$,
+ []
+
+
+Overfull \hbox (14.9967pt too wide) in paragraph at lines 363--364
+\T1/futs/m/n/10.95 con-trar as ocor-rên-cias da string $\FML/futmi/m/it/10.95 s
+$ \T1/futs/m/n/10.95 exa-ta-mente como es-pe-ci-fi-cado"segue abaixo em \T1/fut
+s/b/it/10.95 Python\T1/futs/m/n/10.95 : 
+ []
+
+[8] [9] [10] (./RELATORIO.aux) ) 
 Here is how much of TeX's memory you used:
- 7951 strings out of 492995
- 115202 string characters out of 6132705
- 535550 words of memory out of 5000000
- 11345 multiletter control sequences out of 15000+600000
- 124298 words of font info for 135 fonts, out of 8000000 for 9000
+ 7975 strings out of 492995
+ 115508 string characters out of 6132705
+ 542550 words of memory out of 5000000
+ 11367 multiletter control sequences out of 15000+600000
+ 128859 words of font info for 138 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,12n,51p,8838b,1897s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base
-/8r.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/fourier/fourier-
-ms.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb>
-</usr/local/texlive/2017/texmf-dist/fonts/type1/adobe/utopia/putbi8a.pfb></usr/
-local/texlive/2017/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/t
-exlive/2017/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on RELATORIO.pdf (6 pages, 85476 bytes).
+{/usr/local/texlive/2017/texmf-dist/fonts/enc/d
+vips/base/8r.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/fourier
+/fourier-ms.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/adobe/utopia/pu
+tb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/adobe/utopia/putbi8a.p
+fb></usr/local/texlive/2017/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></us
+r/local/texlive/2017/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
+Output written on RELATORIO.pdf (10 pages, 97676 bytes).
 PDF statistics:
- 44 PDF objects out of 1000 (max. 8388607)
- 30 compressed objects within 1 object stream
+ 58 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
